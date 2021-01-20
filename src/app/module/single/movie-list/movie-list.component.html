@@ -1,0 +1,29 @@
+<div class="container-session">
+
+  <h1 class="titulo">Lista de filmes</h1>
+  <p *ngIf="!notFound">Confira lista de filmes encontrados</p>
+
+  <p class="danger" *ngIf="notFound">Não existem filmes para ser exibido!</p>
+
+  <ejs-grid *ngIf="!notFound" #grid [sortSettings]="sortOptions" [dataSource]="movieDataSource" [allowFiltering]='false' [filterSettings]='filterOptions' [allowSorting]="true" [allowPaging]="true" [allowTextWrap]="true" [pageSettings]="pageSettings">
+    <e-columns>
+      <e-column field='Poster' headerText='Poster' textAlign='Left' [width]="isMobile ? '18%' : '10%'">
+        <ng-template #template let-data>
+          <img class="poster" [src]="data.Poster" alt="poster">
+        </ng-template>
+      </e-column>
+      <e-column field='Title' headerText='Título' textAlign='Left' [width]="isMobile ? '20%' : '50%'"></e-column>
+      <e-column field='Year' headerText='Ano' *ngIf="!isMobile" width="15%"></e-column>
+      <e-column field='Type' headerText='Tipo' *ngIf="!isMobile" width="15%"></e-column>
+      <e-column field='imdbID' [headerText]='!isMobile ? "Detalhe" : ""' width="10%">
+        <ng-template #template let-data>
+          <button (click)="onDetail(data.imdbID)" mat-mini-fab color="accent">
+            <mat-icon>preview</mat-icon>
+          </button>
+        </ng-template>
+      </e-column>
+    </e-columns>
+  </ejs-grid>
+  <br>
+
+</div>

@@ -1,0 +1,18 @@
+<form [formGroup]="form" novalidate>
+
+  <div class="container-session container-center-column">
+
+    <h1 class="titulo">Busca de filmes</h1>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Digite o nome do filme</mat-label>
+      <input matInput formControlName="Parameter">
+      <mat-hint class="field-required" *ngIf="f.Parameter.invalid && (f.Parameter.dirty || f.Parameter.touched)">
+        Obrigatório e no mínimo 5 caracteres</mat-hint>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="movieSearch()">Buscar</button>
+
+  </div>
+
+</form>

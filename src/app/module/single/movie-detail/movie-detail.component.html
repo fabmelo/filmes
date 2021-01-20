@@ -1,0 +1,22 @@
+<div class="container-session">
+
+  <h1 class="titulo">Detalhe do filme</h1>
+  <p>Confira os detalhes do filme selecionado</p>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ movie?.Title }}</mat-card-title>
+      <mat-card-subtitle><strong>Ano:</strong> {{ movie?.Year }}</mat-card-subtitle>
+      <mat-card-subtitle class="ultima"><strong>Diretor:</strong> {{ movie?.Director }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="movie?.Poster" [alt]="movie?.Title">
+    <mat-card-content>
+      <p><strong>Atores</strong></p>
+      <p>{{ movie?.Actors}}</p>
+      <p><strong>Enredo</strong></p>
+      <p>{{ movie?.Plot}}</p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

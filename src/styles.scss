@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-dropdowns/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-angular-grids/styles/material.css";
+
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$movie-primary: mat-palette($mat-blue, 900);
+$movie-accent : mat-palette($mat-light-blue, 400);
+$movie-warn   : mat-palette($mat-red);
+
+$movie-theme: mat-light-theme((color: (primary: $movie-primary,
+      accent: $movie-accent,
+      warn: $movie-warn,
+    ),
+  ));
+
+@include angular-material-theme($movie-theme);
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #c8d0d1;
+  margin          : 0;
+  font-family     : Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1.titulo {
+  color      : #0d47a1;
+  font-weight: 800;
+}
+
+form {
+  padding: 0 !important;
+  margin : 0 !important;
+  width  : 100vw;
+}
+
+.container-session {
+  height : calc(100vh - 100px);
+  padding: 20px;
+}
+
+.container-center-column {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items    : center;
+  align-content  : center;
+}
+
+.field-required {
+  color: red;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  mat-form-field {
+    width : 350px;
+    margin: 0 0 20px 0 !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 1199px) {
+  mat-form-field {
+    width : 80vw;
+    margin: 0 0 20px 0 !important;
+  }
+}
